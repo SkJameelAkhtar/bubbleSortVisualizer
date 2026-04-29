@@ -15,13 +15,15 @@ height = [195, 80, 130, 90, 175, 55, 75,
 			81, 51, 80, 82, 159, 96, 14]
 
 run = True
+execute = False
+
+font = pygame.font.SysFont('Arial', 20)
 
 def show(height):
 	for i in range(len(height)):
 		pygame.draw.rect(win, (255, 0, 0), (x + 30 * i, y, width, height[i]))
 
 while run:
-	execute = False
 	pygame.time.delay(10)
 	keys = pygame.key.get_pressed()
 
@@ -34,6 +36,8 @@ while run:
 	if execute == False:
 		win.fill((0, 0, 0))
 		show(height)
+		text = font.render("Press SPACE to start sorting", True, (255, 255, 255))
+		win.blit(text, (120, 350))
 		pygame.display.update()
 
 	else:
